@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Page</title>
+  <script>
+    function validateForm() {
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (username.length < 3) {
+        alert("Username must be at least 3 characters long.");
+        retur5+n false;
+      }0
+
+      if (email === "") {
+        alert("Email is required.");
+        return false;
+      }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Register</h2>
+  <form onsubmit="return validateForm()">
+    <label for="username">Username:</label><br />
+    <input type="text" id="username" name="username" /><br /><br />
+
+    <label for="email">Email:</label><br />
+    <input type="text" id="email" name="email" /><br /><br />
+
+    <label for="password">Password:</label><br />
+    <input type="password" id="password" name="password" /><br /><br />
+
+    <label for="confirmPassword">Confirm Password:</label><br />
+    <input type="password" id="confirmPassword" name="confirmPassword" /><br /><br />
+
+    <input type="submit" value="Register" />
+  </form>
+</body>
+</html>
